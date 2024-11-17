@@ -1,0 +1,24 @@
+
+.containdo {
+    background-image: url("../../../public/png/homebg.jpeg");
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: stretch;
+    color: azure;
+
+    gap: 150px;
+}
+
+.centerized{
+    display:flex;
+    align-items: center;
+    align-self: center;
+}
+

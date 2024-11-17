@@ -1,0 +1,124 @@
+.login {
+    width: 80vw;
+    height: 80vh;
+    background-color: rgba(2, 15, 17, 0.5);
+    border-radius: 12px;
+    backdrop-filter: blur(19px) saturate(120%);
+  
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    .loginf {
+        flex:2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+        gap: 19px;
+    
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 50%;
+        }
+
+        input {
+            width: 100%;
+            padding: 20px;
+            border: none;
+            outline: none;
+            background-color: rgba(17,25,40,0.6);
+            color: white;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 20px;
+            border: none;
+            background-color: #1f8ef1;
+            color: white;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .specialButton {
+            width: 100%;
+            padding: 20px;
+            border: none;
+            background-color: rgba(4, 80, 222, 0.2);
+            color: white;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+
+    .item {
+        flex:1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+        gap: 20px;
+    
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+
+            input {
+                padding: 20px;
+                border: none;
+                outline: none;
+                background-color: rgba(17,25,40,0.6);
+                color: white;
+                border-radius: 5px;
+            }
+        
+            label {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                text-decoration: underline;
+    
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    opacity: 60%;
+                }
+            }
+            
+            button {
+                width: 100%;
+                padding: 20px;
+                border: none;
+                background-color: #1f8ef1;
+                color: white;
+                border-radius: 5px;
+                font-weight: 500;
+                cursor: pointer;
+            }
+        }
+    }
+    
+    .separator {
+        height: 90%;
+        width: 0.1%;
+        background-color: white;
+        opacity: 50%;
+    }    
+}

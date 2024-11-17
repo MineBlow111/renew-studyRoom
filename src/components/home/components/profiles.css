@@ -1,0 +1,69 @@
+.profiles {
+    width: 150px;
+    height: 100%;
+    outline: rgba(31, 12, 12, 0.251) solid 1px;
+    background-color: rgba(22, 22, 22, 0.5);
+    backdrop-filter: blur(19px) saturate(120%);
+    box-shadow: 4.6px 0px 15px hsl(0deg 0% 0% / 0.36);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    border-right: rgba(255, 255, 255, 0.251) solid 1px;
+
+    .avatarGradient {
+        width: 75%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-bottom: rgba(255, 255, 255, 0.251) solid 1px;
+
+        button {
+            color: azure;
+        }
+
+        img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .forceNoInvert {
+            filter: invert(0);
+        }
+        
+        margin-bottom: 20px;
+    }
+    
+    .sep {
+        margin: 5px;
+    }
+
+    .buttonTab {
+        height: 30px;
+        width: 90%;
+        display: flex;
+        background-color: rgba(22, 22, 22, 0.5);
+        align-items: center;
+        border-radius: 5px;
+
+        p {
+            padding-top: 4px;
+            font-size: 13px;
+        }
+    }
+    
+    img {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+        filter: invert(1);     
+        margin-right: 15px;
+        margin-left: 5px;
+    }
+}

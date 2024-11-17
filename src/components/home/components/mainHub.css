@@ -1,0 +1,212 @@
+.mainHub {
+    flex: 1;
+    display: flex;
+
+    .separator {
+        width: 5%;
+        background-color: rgba(1,1,1,0);
+    }
+
+    .main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        .info {
+            height: 6vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: auto;
+            gap: 35px;
+            
+            button {
+                cursor: pointer;
+                background: transparent;
+                border: none;
+                width: 30px;
+                height: 30px;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+                filter: invert(1);            
+            }
+
+            .forceNoInvert {
+                filter: invert(0);
+            }
+
+            .hiddenDropdown {
+                background: transparent;
+                border: none;            
+                width: auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-left: auto;
+                color: white;
+                position: relative;
+              
+                gap: 20px;
+            }
+
+            .dropdown-content {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                align-items: center;
+                background-color: rgba(22, 22, 22, 0.75);
+                backdrop-filter: saturate(120%);
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+         
+                width: 160px;
+                z-index: 1;
+                border-radius: 5px;
+                margin-top: 5px;
+
+                button {
+                    width: 80%;
+                    margin-bottom: 7px;
+                    margin-top: 7px;
+                    text-align: left;
+                    color: white;
+                    font-size: 16px;
+                }
+              }              
+        }
+
+        .mainSection {
+            width: 100%;
+
+            h1 {
+                font-weight: bold;
+                font-size: 300%;
+                letter-spacing: 0.2vw;
+            }
+
+            input {
+                border: none;
+                outline: none;
+                color: white;
+                flex: 1;
+                
+            }
+        }
+
+        .searchBar {
+            width: 100%;
+            height: 30px;
+            display: flex;
+            background-color: transparent;
+            
+            .separator {
+                flex: 2;
+                background-color: transparent;
+                margin-top: 0;
+                margin-bottom: 0;
+                border: none;
+            }
+            
+            div {
+                border: rgba(245, 245, 245, 0.8) solid 2px;
+                flex: 2;
+                height: 100%;
+                display: flex;
+                background-color: rgba(22, 22, 22, 0.5);
+                border-radius: 35px;
+                gap: 5px;
+                align-items: center;
+
+                input {
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    
+                    color: white;
+                    flex: 3;
+                }
+
+            }
+
+            .collapsible {
+                border: rgba(245, 245, 245, 0.8) solid 2px;
+                width: auto;
+                background-color: transparent;
+                display: flex;
+                background-color: rgba(22, 22, 22, 0.5);
+                border-radius: 35px;
+                align-items: center;
+                align-content: space-between;
+                cursor: pointer;
+                padding: 5px;
+                gap: 5px;
+
+                color: rgba(255, 255, 255, 1);
+
+                img {
+                    margin-left: 0;
+                    width: 25px;
+                    height: 25px;
+                }
+                
+                div {
+                    width: 0px;
+                    padding: 30px;
+                }
+            }
+
+            .collapsible:hover {
+                background-color: #7474748f;
+            }                  
+
+            .content {
+                margin-top: 50px;
+                overflow: hidden;
+                background-color: #f1f1f1;                  
+            }
+
+            img {
+                margin-left: 5px;
+                width: 20px;
+                height: 20px;
+                object-fit: cover;
+                filter: invert(1);
+            }
+        }
+
+        .separator {
+            width: 90%;
+            height: 2px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+            opacity: 70%; 
+        }
+
+        .roomDisplay{
+            flex: 1;
+            width: 100%;
+            height: auto;
+            background-color: transparent;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            row-gap: 45px;
+            
+            .room {
+                background-color: rgba(22, 22, 22, 0.8);
+                border-radius: 35px;
+                width: 350px;
+                height: 250px;
+                border: rgba(245, 245, 245, 0.8) solid 2px;
+            }
+        }
+    }
+}
