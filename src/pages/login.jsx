@@ -1,15 +1,20 @@
-import { toast } from 'react-toastify';
+import {Notification} from '../components/notification/notification.jsx';
+import './login.css';
 
-import {auth, provider, db} from '../dblibs/firebase-config.js';
-import {signInWithPopup} from 'firebase/auth';
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { toast } from 'react-toastify';
+import {auth, provider, db} from '../components/dblibs/firebase-config.js';
+import { uploadImage } from '../components/dblibs/uploadImage.js';
+import {onAuthStateChanged, signInWithPopup} from 'firebase/auth';
+import {
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword } from 'firebase/auth';
 import {doc, setDoc} from 'firebase/firestore';
 
-import {useState} from 'react';
-import Cookies from 'universal-cookie';
-import { uploadImage } from '../dblibs/uploadImage.js';
-
-const cookies = new Cookies();
+import {useEffect, useState} from 'react';
+import { useUserStore } from '../components/dblibs/userStore.js';
+import {
+    Navigate,
+  } from "react-router-dom";
 
 export const Auth = (props) => {
     const [avatar, setAvatar] = useState({
@@ -41,14 +46,14 @@ export const Auth = (props) => {
         const formData = new FormData(e.target);
         const {email, password} = Object.fromEntries(formData);
 
-        try{
-            await signInWithEmailAndPassword(auth, email, password);
-        } catch (err) {
+        await signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            props.fetchUserInfo(user.uid);
+          })
+          .catch((err) => {
             toast.error(err.message);
-        }
-        finally{
-
-        }
+          });
     }
 
     const handleRegister = async(e) => {
@@ -80,7 +85,6 @@ export const Auth = (props) => {
         }
         catch (err)
         {
-            console.log(err);
             toast.error(err.message);
         }
     }
@@ -101,7 +105,7 @@ export const Auth = (props) => {
             <h2> Create an account </h2>
             <form onSubmit={handleRegister}>
                 <label htmlFor='file'>
-                <img src = {avatar.url || "./logo192.png"} alt=""/>
+                <img src = {avatar.url || "./logo512.png"} alt=""/>
                     Upload an image</label>
                 <input type = "file" id="file" accept=".jpg,.jpeg,.png" style={{display:"none"}} onChange={handleAvatar}/>
                 <input type = "text" placeholder='Username' name = "username"/>
@@ -111,4 +115,36 @@ export const Auth = (props) => {
             </form>
         </div>
     </div>
+}
+
+export const Login = () => {
+    const {currentUser, isLoading, fetchUserInfo, resetUserInfo} = useUserStore();
+    
+    useEffect( ()=>{
+        const unSub = onAuthStateChanged(auth, (user)=> {
+          console.log(auth.currentUser);
+          if (!user)
+          {
+            resetUserInfo();
+            return;
+          }
+          fetchUserInfo(user.uid);
+        });
+    
+        return () => {
+          unSub();
+        }
+      },[fetchUserInfo]);
+    
+      console.log(currentUser);
+    
+      if (isLoading) return <div>TEST LOADING</div>;
+  
+    return (
+        (!currentUser? <div className = "container">
+        <Auth fetchUserInfo={fetchUserInfo}/>
+        <Notification/>
+        </div>:<Navigate to="/home" replace={true}/>
+        )
+    );
 }

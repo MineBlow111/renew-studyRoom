@@ -2,7 +2,7 @@
   "name": "study-room-proto",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://MineBlow111.github.io/renew-studyRoom",
+  "_comment": " homepage: https://MineBlow111.github.io/renew-studyRoom, ",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -10,6 +10,7 @@
     "firebase": "^11.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
     "react-scripts": "5.0.1",
     "react-toastify": "^10.0.6",
     "universal-cookie": "^7.2.2",

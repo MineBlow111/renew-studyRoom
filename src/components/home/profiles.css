@@ -12,6 +12,11 @@
     position: fixed;
     border-right: rgba(255, 255, 255, 0.251) solid 1px;
 
+    p {
+        font-size: 14px;
+        color: white;
+    }
+
     .avatarGradient {
         width: 75%;
         height: 100px;
@@ -51,11 +56,9 @@
         background-color: rgba(22, 22, 22, 0.5);
         align-items: center;
         border-radius: 5px;
+        border: none;
 
-        p {
-            padding-top: 4px;
-            font-size: 13px;
-        }
+        cursor: pointer;
     }
     
     img {

@@ -1,14 +1,14 @@
-import { auth } from '../../dblibs/firebase-config';
-import { useUserStore } from '../../dblibs/userStore';
+import { auth } from '../dblibs/firebase-config';
+import { useUserStore } from '../dblibs/userStore';
 import './mainHub.css';
 import React, {useState} from 'react';
+
 const toggle = (open, setOpen) => {
     setOpen(!open);
 }
-  
-  
-export const MainHub = () => {
-    const {currentUser, isLoading, fetchUserInfo} = useUserStore();
+
+export const MainHub = (props) => {
+    const {currentUser} = useUserStore();
     const [open, setOpen] = useState(false);
     const [collState, setcollState] = useState(false);
     
@@ -23,9 +23,9 @@ export const MainHub = () => {
     return (
         <div className='mainHub'>
 
-            <div className='separator'/>
+            <div className='MainHub_sep'/>
 
-            <div className = 'main'>
+            <div className = 'MainHub_main'>
                 <div/>
 
                 <div className = 'info'>
@@ -49,44 +49,10 @@ export const MainHub = () => {
                     </div>
                 </div>
 
-                <div className='mainSection'>
-                    <h1> WELCOME BACK, {currentUser.username}! </h1>
-                </div>
-
-                <div className = "separator"/>
-                
-                <div className = 'searchBar'>
-                    <div>
-                    <img src = {"./png/search.png"} alt=""/>
-                    <input type = 'text' placeholder = 'Search'/>
-                    </div>
-
-                    <div className = 'separator'/>
-
-                    <button type="button"
-                    className="collapsible"
-                    onClick={() => toggle(open, setOpen)}
-                    >
-                    <img src = {"./png/filter.png"} alt=""/>
-
-                    {open && <div className="content">
-                        <p>Lorem ipsum...</p>
-                    </div>}
-
-                    </button>
-                </div>
-
-                <div/>
-                <div className = 'roomDisplay'>
-                    <div className = 'room'> </div>
-                    <div className = 'room'> </div>
-                    <div className = 'room'> </div>
-
-                </div>
-
+                {props.displayComponent}
             </div>
 
-            <div className='separator'/>
+            <div className='MainHub_sep'/>
         </div>
     )
 }

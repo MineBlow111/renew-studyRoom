@@ -1,6 +1,5 @@
-
 .containdo {
-    background-image: url("../../../public/png/homebg.jpeg");
+    background-image: url("../../public/png/homebg.jpeg");
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
